@@ -1,0 +1,178 @@
+{% extends 'core/base.html'%} 
+{% load static %} 
+
+{% block titulo %}Inicio{% endblock %} 
+{% block content %} 
+
+<div class="slider">
+        <ul class="rslides" id="slider">
+                {% for slider in slider %} 
+                <li>
+                        <img src="{{slider.Foto.url}}" alt="" />
+                    
+                </li>
+                {% endfor %}
+        </ul>
+    </div>
+    <!-- Banner-Slider-JavaScript -->
+	<script src="{% static 'js/responsiveslides.min.js'%}"></script>
+	<script>
+		$(function () {
+			$("#slider").responsiveSlides({
+				auto: true,
+				nav: true,
+				speed: 800,
+				namespace: "callbacks",
+				pager: true,
+			});
+		});
+	</script>
+	<!-- //Banner-Slider-JavaScript -->
+	<!-- //Header -->
+
+
+
+	
+<!-- trend -->
+<div class="trend-w3layouts">
+        <div class="container">
+            <h2>Juegos</h2>
+            
+            <ul id="flexiselDemo1">
+                    {% for juego in juego %} 			
+                    <li>
+                           
+                        <div class="trend-grid">
+                            <h4>{{juego.nombre}}</h4>
+                            <img src="{{juego.Foto.url}}" alt=" " class="img-responsive" />
+                        </div>
+                    </li>
+                    {% endfor %}
+                    
+                </ul>
+                            <script type="text/javascript">
+                                $(window).load(function() {
+                                    $("#flexiselDemo1").flexisel({
+                                        visibleItems: 4,
+                                        animationSpeed: 1000,
+                                        autoPlay: true,
+                                        autoPlaySpeed: 3000,    		
+                                        pauseOnHover: true,
+                                        enableResponsiveBreakpoints: true,
+                                        responsiveBreakpoints: { 
+                                            portrait: { 
+                                                changePoint:480,
+                                                visibleItems: 2
+                                            }, 
+                                            landscape: { 
+                                                changePoint:640,
+                                                visibleItems:3
+                                            },
+                                            tablet: { 
+                                                changePoint:768,
+                                                visibleItems: 4
+                                            }
+                                        }
+                                    });
+                                    
+                                });
+                        </script>
+                        <script type="text/javascript" src="{% static 'js/jquery.flexisel.js'%}"></script>
+        </div>
+    </div>
+    <!-- //trend -->
+    
+    
+    <!-- services
+<div class="services-agileits-w3layouts">
+        <div class="container">
+            <h3>Services</h3>
+            <div class="col-md-3 service-grid-agileits service-grid-agileits-top">
+                <span class="glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                <h4>Quis tortor</h4>
+                <p>Curabitur suscipit porttitor aliquam. Etiam id placerat purus. Integer sodales elit eget arcu placerat.</p>
+                <a href="single.html">Read More</a>
+            </div>
+            <div class="col-md-3 service-grid-agileits">
+                <span class="glyphicon glyphicon-random" aria-hidden="true"></span>
+                <h4>Eget arcu</h4>
+                <p>Curabitur suscipit porttitor aliquam. Etiam id placerat purus. Integer sodales elit eget arcu placerat.</p>
+                <a href="single.html">Read More</a>
+            </div>
+            <div class="col-md-3 service-grid-agileits service-grid-agileits-bottom">
+                <span class="glyphicon glyphicon-yen" aria-hidden="true"></span>
+                <h4>Risus porta</h4>
+                <p>Curabitur suscipit porttitor aliquam. Etiam id placerat purus. Integer sodales elit eget arcu placerat.</p>
+                <a href="single.html">Read More</a>
+            </div>
+            <div class="col-md-3 service-grid-agileits service-grid-agileits-bottom">
+                <span class="glyphicon glyphicon-object-align-right" aria-hidden="true"></span>
+                <h4>Proin sapien</h4>
+                <p>Curabitur suscipit porttitor aliquam. Etiam id placerat purus. Integer sodales elit eget arcu placerat.</p>
+                <a href="single.html">Read More</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>-->
+    <!-- //services-->
+
+
+<!-- new games -->
+<div class="new-w3-agile">
+        <div class="container">
+            <h3>Distribuidoras</h3>
+            {% for distribuidor in distribuidor %} 
+            <div class="col-md-3 new-grid-w3l view view-eighth">			
+                <img src="{{distribuidor.Foto.url}}" alt=" " />
+                <div class="mask">
+                    <a href="distribuidor/{{distribuidor.id}}"><h4>Ver</h4></a>
+                    <p>{{distribuidor.nombred}}</p>
+                    
+                </div>
+            </div>
+            {% endfor %}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- //new games-->
+
+
+
+    <div class="services-bottom-w3-agileits">
+            <div class="container">
+                <div class="wthree_info">
+                    <section class="slider">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                    {% for distribuidor in distribuidor %} 
+                                <li>
+                                    <div class="wthree_info_grid">
+                                        <h3>{{distribuidor.nombred}}</h3>
+                                        <p>{{distribuidor.industria}}</p>
+                                        <p>{{distribuidor.fundacion}}</p>
+                                        <p>{{distribuidor.sede}}</p>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </section>
+                            <!-- flexSlider -->
+                                
+                                <script defer src="{% static 'js/jquery.flexslider.js' %}"></script>
+                                <script type="text/javascript">
+                                $(window).load(function(){
+                                  $('.flexslider').flexslider({
+                                    animation: "slide",
+                                    start: function(slider){
+                                      $('body').removeClass('loading');
+                                    }
+                                  });
+                                });
+                              </script>
+                            <!-- //flexSlider -->
+                </div>
+            </div>
+        </div>
+    
+{% endblock %}

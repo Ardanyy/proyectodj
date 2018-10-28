@@ -1,0 +1,19 @@
+
+{% extends 'core/base.html'%} 
+{% load static %} 
+{% block titulo %}administrador|plataformas{% endblock %} 
+{% block forms %} 
+<div class="contact-agileinfo">
+        <div class="container">
+            <h2></h2>
+            <div class="col-md-4 contact-left-agile">
+<center><form  method="post">{% csrf_token %}
+    <p>Estas Seguro En Eliminar "{{ object }}"?</p>
+    <input type="submit" value="Confirmar" />
+</form></center>    
+<div class="clearfix"></div>
+</div>
+</div>
+</div>
+
+{% endblock %}

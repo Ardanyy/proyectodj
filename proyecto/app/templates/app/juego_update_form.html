@@ -1,0 +1,10 @@
+{% extends 'core/base.html'%} 
+{% load static %} 
+{% block titulo %}administrador|plataformas{% endblock %} 
+{% block forms %} 
+
+<form method="post"  enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update" />
+</form>
+{% endblock %}

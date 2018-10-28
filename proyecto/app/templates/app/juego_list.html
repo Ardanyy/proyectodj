@@ -1,0 +1,36 @@
+{% extends 'core/base.html'%} 
+{% load static %} 
+{% block titulo %}Juegos{% endblock %} 
+{% block content %} 
+<!-- banner -->
+<div class="sub-banner">
+</div>
+<!-- banner -->
+<a href="/administrador/create/" class="blog-read" >Crear Nuevo</a>
+<div class="events-w3layouts">
+    {% for juego in object_list %}
+    <div class="events-section2-agileinfo">
+    <div class="container">
+        <div class="blog1-w3ls">
+            <div class="col-md-4 blog-image-w3l">
+                <a href="single.html"><img src="{{juego.Foto.url}}" alt=" " /></a>
+            </div>
+            <div class="col-md-8 blog-text-w3ls">
+                <a href="single.html"><h4>{{juego.nombre}}</h4></a>
+                <div class="item_info">
+                        <ul>
+                            <li><i class="glyphicon glyphicon-user"></i>{{juego.creadores}}</a></li>
+                        </ul>				
+                 </div>
+                 <p>{{juego.Descripcion}}</p>
+                 <a href="/administrador/actualizar/{{juego.id}}" class="blog-read" >Actualizar</a>
+                 <a href="/administrador/eliminar/{{juego.id}}" class="blog-read" >Eliminar</a>
+            </div>
+            <div class="clearfix"></div>
+        </div> 
+        {% endfor %}
+    </div>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'core/base.html'%} 
+{% load static %} 
+
+{% block titulo %}Inicio{% endblock %} 
+{% block content %} 
+
+<div class="sub-banner">
+</div>
+
+{% if not request.user.is_authenticated %}
+<br>
+<br>
+<h1>Cerastes sesión inicia nuevamente para ir al panel de administración </h1>
+
+{% else %}
+<br>
+<br>
+<h1>Bienvenido AL Sistema</h1>
+{%endif%}
+
+
+{% endblock %}

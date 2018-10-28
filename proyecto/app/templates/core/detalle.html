@@ -1,0 +1,76 @@
+{% extends 'core/base.html'%} 
+{% load static %} 
+{% block titulo %}Detalle{% endblock %} 
+{% block content %} 
+<div class="sub-banner">
+
+</div>
+<div class="agileits_breadcrumbs">
+		<div class="container">
+			<div class="agileits_breadcrumbs_left">
+				<ul>
+					<li><a href="{% url 'inicio' %}">Home</a><i>|</i></li>
+					<li>Single</li>
+				</ul>
+			</div>
+			<div class="agileits_breadcrumbs_right">
+				<h3>{{juego.nombre}}</h3>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+    </div>
+    
+
+    <div class="blog">
+            <div class="container">
+                <div class="col-md-7 wthree_blog_left">
+                    <div class="wthree_blog_left_grid">
+                        <div class="wthree_blog_left_grid_slider">
+                            <img src="{{juego.Foto.url}}" height="600"  />
+                        </div>
+                        <h4>{{juego.nombre}}</h4>
+                        <h3>facilisis velit vitae gravida imperdiet</h3>
+                        <ul>
+                            <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="#">{{juego.creadores}}</a><i>|</i></li>
+                            <li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">{{juego.Plataformas}}</a><i>|</i></li>
+                            <p>{{juego.Descripcion}}</p>
+                        </div>
+                    </ul><li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a>
+                        {% for c in juego.genero.all %}
+                        {{c.nombre}}<i>|</i>{% endfor%}</a></li>
+                    <div class="agileits_share">
+                        <ul>
+                            <li><a class="linkedin" href="#"></a></li>
+                            <li><a class="google" href="#"></a></li>
+                            <li><a class="twitter" href="#"></a></li>
+                            <li><a class="facebook" href="#"></a></li>
+                        </ul>
+                    </div>
+                    <div class="agileits_reply">             
+                        </div>
+                    </div> 
+
+                    <div class="col-md-5 wthree_blog_right">
+                            <div class="w3ls_search">
+                            </div>               
+                            <div class="w3l_categories">
+                                    <h3>Generos</h3>
+                                    {% for genero in genero %} 
+                                    <ul>
+                                        <li><a href="/genero/detalle/{{genero.id}}/">{{genero.nombre}}</a></li>
+                                    </ul>
+                                     {% endfor %}
+                                </div>
+
+                                <div class="w3l_archives">
+                                        <h3>Distruibuidoras</h3>
+                                        {% for distribuidor in distribuidor %} 
+                                        <ul>
+                                            <li><a href="/distribuidor/{{distribuidor.id}}/">{{distribuidor.nombred}}</a></li>
+                                           
+                                        </ul>
+                                        {% endfor %}
+                                    </div>
+
+                                    </div>
+{% endblock %}

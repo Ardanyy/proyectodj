@@ -1,0 +1,44 @@
+{% extends 'core/base.html'%} 
+{% load static %} 
+{% block titulo %}distribuidora{% endblock %} 
+{% block content %} 
+<!-- banner -->
+<div class="sub-banner">
+
+		
+</div>
+<!-- banner -->
+<div class="about-agileinfo" id="about">
+		<div class="container">
+			<h2>{{distribuidora.nombred}}</h2>
+			<div class="about-grids-w3-agileits">
+				<div class="col-md-6 about-grid-left-agileits-w3layouts">
+					<ul>
+                            {% for juego in distribuidora.keyd.all %} 
+                            <li><i>.</i><a class="link link--kumya" href="/juegos/detalle/{{juego.id}}"><span data-letters="{{juego.nombre}}">{{juego.nombre}}</span></a></li>
+                        {% endfor %}
+                
+					</ul>
+				</div>
+				<div class="col-md-6 about-grid-right-w3-agile">
+					<div class="grid-w3ls">
+					<figure class="effect-zoe">
+						<img src="{{distribuidora.Foto.url}}" alt=" " class="img-responsive" />
+						<figcaption>
+							<h3>{{distribuidora.nombred}}<span></span></h3>
+							<p class="icon-links">
+								<a href="#"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></a>
+								<a href="#"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+								<a href="#"><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span></a>
+							</p>
+							<p class="description">{{distribuidora.industria}}</p>
+						</figcaption>			
+					</figure>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

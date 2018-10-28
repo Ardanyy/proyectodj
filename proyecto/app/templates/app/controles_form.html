@@ -1,0 +1,22 @@
+{% extends 'core/base.html'%} 
+{% load static %} 
+{% block titulo %}administrador|Update{% endblock %} 
+{% block forms %} 
+<div class="contact-agileinfo">
+        <div class="container">
+            <h2></h2>
+            <div class="col-md-4 contact-left-agile">
+              
+            <div class="col-md-8 contact-right-w3">
+                    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Guardar" />
+                    </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+ 
+{% endblock %}
+
